@@ -16,7 +16,7 @@ const Home = ({ getId }) => {
         setItems(data.results)
       })
       setShowLoader(false)
-    }, []);
+    });
 
   const updateId = (name) => {
     getId(name)
