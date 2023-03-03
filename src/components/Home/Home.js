@@ -7,7 +7,7 @@ import css from './Home.module.css';
 const Home = ({ getId }) => {
   const [items, setItems] = useState([])
   const [showLoader, setShowLoader] = useState(false)
-
+//eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
       setShowLoader(true)
       fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d3f7b1c0656b5d6ae1aec003a1724af6`)
@@ -16,6 +16,7 @@ const Home = ({ getId }) => {
         setItems(data.results)
       })
       setShowLoader(false)
+      
     });
 
   const updateId = (name) => {
