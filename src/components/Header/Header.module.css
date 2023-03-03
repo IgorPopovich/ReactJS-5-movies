@@ -1,0 +1,19 @@
+.link {
+    font-family: sans-serif;
+    text-decoration: none;
+    outline: none;
+    color: #000000;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+
+  .menu {
+    padding: 10px 30px;
+    display: flex;
+    font-size: 15px;
+    border-bottom: 1px solid #000000;
+  }
+  
+  .activeClassName {
+    color: #f30000;
+  }

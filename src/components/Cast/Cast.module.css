@@ -1,0 +1,19 @@
+.profile_path {
+    width: 100px;
+  }
+  
+  .name {
+    font-family: sans-serif;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .character {
+    font-family: sans-serif;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-bottom: 23px;
+  }
+
+  

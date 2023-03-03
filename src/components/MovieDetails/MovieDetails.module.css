@@ -1,0 +1,84 @@
+.container {
+    font-family: sans-serif;
+    margin-top: 7px;
+  }
+
+.goBack {
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 10px;
+    padding: 2px 8px 2px 8px;
+    border-radius: 3px;
+    border: 1px solid #8b8b8b;
+    background-color: #e4e4e4;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .goBack:hover {
+    background-color: #ffffff;
+  }
+
+  .filmPoster {/**/
+    width: 120px;
+  }
+  
+  .movieDetails {/**/
+    display: flex;
+    padding: 5px;
+    border-bottom: 1px solid #000;
+  }
+  
+  .descriprion {/**/
+    margin-left: 15px;
+  }
+  
+  .descriptionTitle {/**/
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .filmName {/**/
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  .itemsGenres {/**/
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0px;
+  }
+  
+  .filmGenresItem {/**/
+    margin-left: 3px;
+    font-size: 11px;
+  }
+  
+  .descriptionText {/**/
+    font-size: 11px;
+  }
+  
+  .additatinal {/**/
+    padding-left: 20px;
+    border-bottom: 1px solid #000;
+  }
+  
+  .additatinalTitle {/**/
+    margin-top: 10px;
+    font-size: 11px;
+  }
+  
+  .additatinalMenu {/**/
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 30px;
+  }
+  
+  .additatinalLink {/**/
+    font-size: 13px;
+    margin-top: 10px;
+    color: blue;
+    font-weight: bold;
+  }
