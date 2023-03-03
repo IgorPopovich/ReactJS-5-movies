@@ -29,15 +29,15 @@ const MovieDetails = ({movieId, activeItem}) => {
         {showLoader && <Loader />}
         {!showLoader && <Link to={activeItem} className={css.goBack}>Go back</Link>}
         {!showLoader && <div className={css.container}>
-          <div className={css.movieDetails}>
+          {item !== {} ? <div className={css.movieDetails}>
             <div>
               <img className={css.filmPoster} src={item.poster_path ? `https://image.tmdb.org/t/p/w200${item.poster_path}` : ''} alt={item.title}></img>
             </div>
             <div className={css.descriprion}> 
-              <p className={css.filmName}>{`${item.title} (${correctDate})`}</p>
-              <p className={css.descriptionText}>User Scope: </p>
+              <p className={css.filmName}>{item.length > 0 ? `${item.title} (${correctDate})` : ''}</p>
+              <p className={css.descriptionText}>User Scope: 71% </p>
               <p className={css.descriptionTitle}>Overview</p>
-              <p className={css.descriptionText}>{`${item.overview}`}</p>
+              <p className={css.descriptionText}>{item.overview ? `${item.overview}` : ''}</p>
               <p className={css.descriptionTitle}>Genres</p>
               {itemGenres && <ul className={css.itemsGenres}>
                 {itemGenres.map(( item, index ) => (
@@ -45,7 +45,7 @@ const MovieDetails = ({movieId, activeItem}) => {
                 ))}
               </ul>}
             </div>
-          </div>
+          </div> : <Loader />}
           <div className={css.additatinal}>
             <p className={css.additatinalTitle}>Additatinal information</p>
             <ul className={css.additatinalMenu}>
