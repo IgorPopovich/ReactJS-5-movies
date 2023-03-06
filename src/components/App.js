@@ -21,7 +21,7 @@ function App() {
   }
 
   useEffect(() => {
-    if (location.pathname === '/ReactJS-5-movies') {
+    if (location.pathname === '/ReactJS-5-movies/') {
       navigate('/')
     }
   }, [location, navigate]);
