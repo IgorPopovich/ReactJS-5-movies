@@ -1,42 +1,53 @@
-import PropTypes from 'prop-types';
-import React, {useState, useEffect} from 'react';
-import Loader from "../Loader/Loader";
-import css from './Cast.module.css';
+import Loader from 'components/Loader/Loader';
+import s from './Cast.module.css';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchMoviesCredits } from 'services/api';
 
-function Cast({movieId}) {
-  const [items, setItems] = useState([]);
-  const [showLoader, setShowLoader] = useState(false)
+const Cast = () => {
+  const { movieId } = useParams();
+  const [cast, setCast] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setShowLoader(true)
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=d3f7b1c0656b5d6ae1aec003a1724af6&language=en-US`)
-    .then(response => response.json())
-    .then(data => {
-      setItems(data.cast)
-    })
-    setShowLoader(false)
+    const fetchCast = async () => {
+      try {
+        setLoading(true);
+        const res = await fetchMoviesCredits(movieId);
+        setCast(res);
+      } catch (error) {
+        setError('Ooops. Something went wrong...');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCast();
   }, [movieId]);
 
   return (
-        <div className={css.cast}>
-          {showLoader && <Loader />}
-          {items.length > 0 && <ul className={css.castList}>
-            {items.map(( item, index ) => (
-              <li className={css.castItem} key={index}>
-                {item.profile_path && <img className={css.profile_path} src={`https://image.tmdb.org/t/p/w200${item.profile_path}`} alt={item.name}></img>}
-                <p className={css.name}>{item.name}</p>
-                <p className={css.character}>{`Character: ${item.character}`}</p>
-              </li>
-            ))}
-          </ul>}
-        </div>
+    <>
+      {loading && <Loader />}
+      {error && <div>{error}</div>}
+      <ul className={s.castList}>
+        {cast.map(castItem => {
+          return (
+            <li key={castItem.id} className={s.castItem}>
+              {castItem.profile_path ? <img
+                className={s.castItem_image}
+                src={`https://image.tmdb.org/t/p/w300${castItem.profile_path}`}
+                alt={`${castItem.name} portrait`}
+              /> : ''}
+              <div>
+                <p>Name: {castItem.name}</p>
+                <p>Character: {castItem.character}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
-}
-
-Cast.propTypes = {
-  movieId: PropTypes.number,
-  showLoader: PropTypes.bool,
-  items: PropTypes.array,
 };
 
 export default Cast;

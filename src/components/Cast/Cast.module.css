@@ -1,19 +1,12 @@
-.profile_path {
-    width: 100px;
-  }
-  
-  .name {
-    font-family: sans-serif;
-    font-size: 12px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  
-  .character {
-    font-family: sans-serif;
-    font-size: 12px;
-    margin-top: 3px;
-    margin-bottom: 23px;
-  }
-
-  
+/* .castList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.castItem {
+  margin-bottom: 25px;
+} */
+.castItem_image {
+  width: 200px;
+}

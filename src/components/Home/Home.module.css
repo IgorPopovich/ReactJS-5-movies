@@ -1,21 +1,10 @@
-.container {
-    font-family: sans-serif;
-    margin-top: 7px;
-  }
-
 .item {
-    font-family: sans-serif;
     text-decoration: none;
-    outline: none;
-    color: #000116;
-    margin-top: 3px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .items {
-    display: flex;
-    flex-direction: column;
-    padding-inline-start: 0px;
-    margin-left: 10px;
-  }
+    font-size: 17px;
+    color: black;
+    font-family: sans-serif;
+}
+
+.home {
+    padding: 20px;
+}

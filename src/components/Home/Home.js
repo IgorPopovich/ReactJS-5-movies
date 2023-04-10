@@ -1,45 +1,50 @@
-import PropTypes from 'prop-types';
-import React, {useEffect, useState} from 'react';
-import { Link } from "react-router-dom";
-import Loader from "../Loader/Loader";
-import css from './Home.module.css';
+import Loader from 'components/Loader/Loader';
+import s from './Home.module.css';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { getMovies } from 'services/api';
 
-const Home = ({ getId }) => {
-  const [items, setItems] = useState([])
-  const [showLoader, setShowLoader] = useState(false)
+export default function Home() {
+  const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-      setShowLoader(true)
-      fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d3f7b1c0656b5d6ae1aec003a1724af6`)
-      .then(response => response.json())
-      .then(data => {
-        setItems(data.results)
-      })
-      setShowLoader(false)
-    }, []);
+  const location = useLocation();
 
-  const updateId = (name) => {
-    getId(name)
-  }
+  useEffect(() => {
+    const fetchTrendingMovies = () => {
+      setLoading(true);
+      getMovies()
+        .then(results => setMovies(results))
+        .catch(error => {
+          setError('Ooops. Something went wrong...');
+          console.log(error);
+        })
+        .finally(() => setLoading(false));
+    };
+    fetchTrendingMovies();
+  }, []);
 
+  const isNotFound = !loading && !movies.length;
   return (
-    <div className={css.container}>
-      <ul className={css.items}>
-        {showLoader && <Loader />}
-            {items.length > 0 && items.map(( item, index ) => (
-              <Link onClick={() => updateId(item.id)} to={`/movies/:${item.id}`} className={css.item} key={index}>
-                {item.title}
-              </Link>
-            ))}
-      </ul>
+    <div className={s.home}>
+        <h3>Home</h3>
+        {loading && <Loader />}
+        {isNotFound && <h1>Не найдено!!!</h1>}
+        {error && <div>{error}</div>}
+        {movies && 
+              <>
+                <ul>
+                  {movies.map(({ id, title, name }) => (
+                    <li key={id}>
+                      <Link className={s.item} to={`/movies/${id}`} state={{ from: location }}>
+                        {title ? title : name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+        }
     </div>
-  )
+  );
 }
-
-Home.propTypes = {
-  getId: PropTypes.func,
-  showLoader: PropTypes.bool,
-  items: PropTypes.array,
-};
-
-export default Home;

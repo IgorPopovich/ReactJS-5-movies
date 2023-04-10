@@ -1,0 +1,51 @@
+.backButton {
+  cursor: pointer;
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #505050;
+  color: black;
+  background-color: #ffffff;
+  transition: 100ms;
+}
+
+.backButton:hover {
+  background-color: #d1d1d1;
+  transition: 100ms;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #505050;
+  color: black;
+  background-color: #ffffff;
+  transition: 100ms;
+  margin-left: 20px;
+}
+
+.button:hover {
+  background-color: #d1d1d1;
+  transition: 100ms;
+}
+
+.details {
+  padding: 20px;
+}
+
+.details_container {
+  display: flex;
+}
+
+.details_right {
+  padding: 15px;
+}

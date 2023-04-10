@@ -1,19 +1,10 @@
-.link {
-    font-family: sans-serif;
-    text-decoration: none;
-    outline: none;
-    color: #000000;
-    font-weight: bold;
-    margin-left: 20px;
-  }
-
-  .menu {
-    padding: 10px 30px;
-    display: flex;
-    font-size: 15px;
-    border-bottom: 1px solid #000000;
-  }
-  
-  .activeClassName {
-    color: #f30000;
-  }
+.header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3b3b3b;
+  -webkit-box-shadow: 2px 5px 16px 0px rgba(125,125,125,1);
+  -moz-box-shadow: 2px 5px 16px 0px rgba(125,125,125,1);
+  box-shadow: 2px 5px 16px 0px rgba(125,125,125,1);
+}

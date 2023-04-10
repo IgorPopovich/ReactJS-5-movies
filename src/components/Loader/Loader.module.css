@@ -1,23 +1,34 @@
-#loader {
-  position: relative;
-    z-index: 1;
-    width: 33px;
-    height: 33px;
-    border: 4px solid #3f51b5;
-    border-radius: 50%;
-    border-top: 4px solid #ffffff;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 1s linear infinite;
-    margin-left: 85px;
-    margin-top: 8px;
-  }
-  
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+.StartLoader {
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  margin-left: 20px;
+  border-top: 2px solid #ffffff;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+.StartLoaderContainer {
+  align-items: center;
+  z-index: 2;
+  margin-top: 20pxpx;
+  margin-left: 50px;
+}
+
+.loadingTitle {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #000000;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
