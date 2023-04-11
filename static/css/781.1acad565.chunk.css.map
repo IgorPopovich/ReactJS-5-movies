@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/781.1acad565.chunk.css","mappings":"AAAA,kBAGI,UAAY,CACZ,sBAAuB,CAFvB,cAAe,CADf,oBAIJ,CAEA,kBACI,YACJ","sources":["components/Home/Home.module.css"],"sourcesContent":[".item {\n    text-decoration: none;\n    font-size: 17px;\n    color: black;\n    font-family: sans-serif;\n}\n\n.home {\n    padding: 20px;\n}"],"names":[],"sourceRoot":""}
