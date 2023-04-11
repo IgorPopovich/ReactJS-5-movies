@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import s from './Movies.module.css';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import SearchBar from 'components/SearchBar/SearchBar';
 import { fetchByQuery } from 'services/api';
 import Loader from 'components/Loader/Loader';
+import MovieList from 'components/MovieList/MovieList';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const location = useLocation();
 
   const searchRequest = searchParams.get('query');
 
@@ -37,7 +37,6 @@ const MoviesPage = () => {
     fetchMovie();
   }, [searchRequest]);
 
-  // onSubmit
   function onSubmit(value) {
     setSearchParams({ query: `${value}` });
   }
@@ -49,19 +48,7 @@ const MoviesPage = () => {
         {error && <div>{error}</div>}
 
         <SearchBar onSearch={onSubmit} />
-        {movies &&               
-              <div>
-                <ul>
-                  {movies.map(({ id, original_title }) => (
-                    <li key={id}>
-                      <Link className={s.item} to={`/movies/${id}`} state={{ from: location }}>
-                        {original_title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-          }
+        {movies && <MovieList movies={movies} />}
     </div>
   );
 };

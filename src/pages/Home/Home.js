@@ -1,15 +1,13 @@
 import Loader from 'components/Loader/Loader';
 import s from './Home.module.css';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { getMovies } from 'services/api';
+import MovieList from 'components/MovieList/MovieList';
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const location = useLocation();
 
   useEffect(() => {
     const fetchTrendingMovies = () => {
@@ -32,19 +30,7 @@ export default function Home() {
         {loading && <Loader />}
         {isNotFound && <h1>Не найдено!!!</h1>}
         {error && <div>{error}</div>}
-        {movies && 
-              <>
-                <ul>
-                  {movies.map(({ id, title, name }) => (
-                    <li key={id}>
-                      <Link className={s.item} to={`/movies/${id}`} state={{ from: location }}>
-                        {title ? title : name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-        }
+        {movies &&  <MovieList movies={movies} />}
     </div>
   );
 }

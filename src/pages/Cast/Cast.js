@@ -33,11 +33,11 @@ const Cast = () => {
         {cast.map(castItem => {
           return (
             <li key={castItem.id} className={s.castItem}>
-              {castItem.profile_path ? <img
+              <img
                 className={s.castItem_image}
-                src={`https://image.tmdb.org/t/p/w300${castItem.profile_path}`}
+                src={castItem.profile_path ? `https://image.tmdb.org/t/p/w300${castItem.profile_path}` : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvf9wn1WvKWCp2eCV0atTl56ONzL6TyTPh702UMXqeHag2ZUG0YPch6-XWd2o4S_dK1J4&usqp=CAU'}
                 alt={`${castItem.name} portrait`}
-              /> : ''}
+              />
               <div>
                 <p>Name: {castItem.name}</p>
                 <p>Character: {castItem.character}</p>
