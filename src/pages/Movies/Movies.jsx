@@ -5,6 +5,7 @@ import SearchBar from 'components/SearchBar/SearchBar';
 import { fetchByQuery } from 'services/api';
 import Loader from 'components/Loader/Loader';
 import MovieList from 'components/MovieList/MovieList';
+import Notiflix from 'notiflix';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,7 +24,8 @@ const MoviesPage = () => {
       fetchByQuery(searchRequest)
         .then(results => {
           if (!results.length) {
-            alert('No movies found!');
+            Notiflix.Notify.failure(`No movies found!`);
+            return;
           }
 
           setMovies(results);

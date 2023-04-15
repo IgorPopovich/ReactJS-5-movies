@@ -7,7 +7,7 @@ let activeClassName = {
 };
 
 const Navigation = () => (
-  <div>
+  <div className={s.navigation}>
     <NavLink
       to="/"
       className={s.link}

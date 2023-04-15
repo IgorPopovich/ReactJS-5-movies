@@ -1,10 +1,4 @@
 .header {
-  padding: 15px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #3b3b3b;
-  -webkit-box-shadow: 2px 5px 16px 0px rgba(125,125,125,1);
-  -moz-box-shadow: 2px 5px 16px 0px rgba(125,125,125,1);
-  box-shadow: 2px 5px 16px 0px rgba(125,125,125,1);
+  flex-direction: column;
 }

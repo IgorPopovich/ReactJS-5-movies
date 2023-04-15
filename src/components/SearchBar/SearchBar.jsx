@@ -40,6 +40,7 @@ const SearchBar = ({ onSearch }) => {
           Search
         </button>
       </form>
+
     </>
   );
 };
